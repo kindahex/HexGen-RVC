@@ -734,8 +734,7 @@ def full_inference_tab():
                     interactive=True,
                 )
 
-    with gr.Row():
-        convert_button = gr.Button(i18n("Convert"))
+    
 
     with gr.Row():
         vc_output1 = gr.Textbox(
@@ -743,6 +742,8 @@ def full_inference_tab():
             info=i18n("The output information will be displayed here."),
         )
         vc_output2 = gr.Audio(label=i18n("Export Audio"))
+    with gr.Row():
+        convert_button = gr.Button(i18n("Convert"))
 
     def update_dropdown_visibility(checkbox):
         return gr.update(visible=checkbox)
