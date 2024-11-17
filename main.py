@@ -2,7 +2,6 @@ import gradio as gr
 import sys, os
 from tabs.full_inference import full_inference_tab
 from tabs.download_model import download_model_tab
-from tabs.download_music import download_music_tab
 
 now_dir = os.getcwd()
 sys.path.append(now_dir)
@@ -20,8 +19,6 @@ with gr.Blocks(
     gr.Markdown("# hexGen RVC")
     with gr.Tab(i18n("Full Inference")):
         full_inference_tab()
-    with gr.Tab(i18n("Download Music")):
-        download_music_tab()
     with gr.Tab(i18n("Download Model")):
         download_model_tab()
 
