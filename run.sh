@@ -2,7 +2,7 @@
 
 set -e
 
-title="RVC AI Cover Maker"
+title="hexGen-RVC"
 echo $title
 
 if [ ! -d "env" ]; then
