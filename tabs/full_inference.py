@@ -228,10 +228,7 @@ def full_inference_tab():
                 allow_custom_value=True,
             )
             with gr.Column():
-                with gr.Row():
-                    refresh_button = gr.Button(i18n("Refresh"))
-                with gr.Row():
-                    unload_button = gr.Button(i18n("Unload Voice"))
+                unload_button = gr.Button(i18n("Unload Voice"))
 
             unload_button.click(
                 fn=lambda: (
@@ -742,7 +739,9 @@ def full_inference_tab():
             info=i18n("The output information will be displayed here."),
         )
         vc_output2 = gr.Audio(label=i18n("Export Audio"))
+        
     with gr.Row():
+        refresh_button = gr.Button(i18n("Refresh"))
         convert_button = gr.Button(i18n("Convert"))
 
     def update_dropdown_visibility(checkbox):
