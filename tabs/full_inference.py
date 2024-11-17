@@ -735,16 +735,16 @@ def full_inference_tab():
 
     
 
-            with gr.Row():
-                vc_output1 = gr.Textbox(
-                    label=i18n("Output Information"),
-                    info=i18n("The output information will be displayed here."),
-                )
-                vc_output2 = gr.Audio(label=i18n("Export Audio"))
+        with gr.Row():
+            vc_output1 = gr.Textbox(
+                label=i18n("Output Information"),
+                info=i18n("The output information will be displayed here."),
+            )
+            vc_output2 = gr.Audio(label=i18n("Export Audio"))
             
-            with gr.Row():
-                refresh_button = gr.Button(i18n("Refresh"))
-                convert_button = gr.Button(i18n("Convert"))
+        with gr.Row():
+            refresh_button = gr.Button(i18n("Refresh"))
+            convert_button = gr.Button(i18n("Convert"))
 
     with gr.Tab(i18n("Download Music")):
         with gr.Row():
