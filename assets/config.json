@@ -1,8 +1,4 @@
 {
-  "theme": {
-    "file": null,
-    "class": "nuttea/Softblue"
-  },
   "lang": {
     "override": false,
     "selected_lang": "en_US"
