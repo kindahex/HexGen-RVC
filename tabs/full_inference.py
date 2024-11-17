@@ -227,7 +227,7 @@ def full_inference_tab():
                 interactive=True,
                 allow_custom_value=True,
             )
-            with gr.Column():
+            with gr.Row():
                 unload_button = gr.Button(i18n("Unload Voice"))
 
             unload_button.click(
@@ -458,7 +458,7 @@ def full_inference_tab():
                 pitch_extract = gr.Radio(
                     label=i18n("Pitch Extractor"),
                     info=i18n("Pitch extract Algorith."),
-                    choices=["rmvpe", "crepe", "crepe-tiny", "fcpe"],
+                    choices=["rmvpe", "crepe", "crepe-tiny", "fcpe", "hybrid[fcpe+rmvpe]"],
                     value="rmvpe",
                     interactive=True,
                 )
