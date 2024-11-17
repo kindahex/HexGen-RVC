@@ -8,4 +8,4 @@
 - [Music Source Separation Universal Training Code](https://github.com/ZFTurbo/Music-Source-Separation-Training) by [ZFTurbo](https://github.com/ZFTurbo)
 - [AICoverGen](https://github.com/SociallyIneptWeeb/AICoverGen) by [SociallyIneptWeeb](https://github.com/SociallyIneptWeeb)
 - [FullmatheusBallZ](https://www.youtube.com/@FullmatheusBallZ) for helping me test the colabs
-- [Shirou](https://github.com/ShiromiyaG)
+- [Shirou](https://github.com/ShiromiyaG) the original project
