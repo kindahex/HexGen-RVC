@@ -1,8 +1,8 @@
-'''
+"""
 SCNet - great paper, great implementation
 https://arxiv.org/pdf/2401.13276.pdf
 https://github.com/amanteur/SCNet-PyTorch
-'''
+"""
 
 from typing import List, Tuple, Union
 

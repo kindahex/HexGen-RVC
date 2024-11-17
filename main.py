@@ -12,10 +12,8 @@ from assets.i18n.i18n import I18nAuto
 
 i18n = I18nAuto()
 
-\
-with gr.Blocks(
-    title="hexGen-RVC", css="footer{display:none !important}"
-) as app:
+
+with gr.Blocks(title="hexGen-RVC", css="footer{display:none !important}") as app:
     gr.Markdown("# hexGen RVC")
     with gr.Tab(i18n("Full Inference")):
         full_inference_tab()
