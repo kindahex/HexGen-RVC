@@ -7,6 +7,7 @@ import torch
 import shutil
 import unicodedata
 from core import download_music
+
 i18n = I18nAuto()
 
 now_dir = os.getcwd()
@@ -245,7 +246,6 @@ def full_inference_tab():
                 outputs=[index_file],
             )
 
-
     with gr.Tab(i18n("Single Inference")):
         with gr.Column():
             upload_audio = gr.Audio(
@@ -354,7 +354,13 @@ def full_inference_tab():
                     pitch_extract_back = gr.Radio(
                         label=i18n("Pitch Extractor"),
                         info=i18n("Pitch extract Algorith."),
-                        choices=["rmvpe", "crepe", "crepe-tiny", "fcpe", "hybrid[fcpe+rmvpe]"],
+                        choices=[
+                            "rmvpe",
+                            "crepe",
+                            "crepe-tiny",
+                            "fcpe",
+                            "hybrid[fcpe+rmvpe]",
+                        ],
                         value="rmvpe",
                         interactive=True,
                     )
@@ -461,7 +467,13 @@ def full_inference_tab():
                 pitch_extract = gr.Radio(
                     label=i18n("Pitch Extractor"),
                     info=i18n("Pitch extract Algorith."),
-                    choices=["rmvpe", "crepe", "crepe-tiny", "fcpe", "hybrid[fcpe+rmvpe]"],
+                    choices=[
+                        "rmvpe",
+                        "crepe",
+                        "crepe-tiny",
+                        "fcpe",
+                        "hybrid[fcpe+rmvpe]",
+                    ],
                     value="rmvpe",
                     interactive=True,
                 )
@@ -734,22 +746,23 @@ def full_inference_tab():
                     interactive=True,
                 )
 
-    
-
         with gr.Row():
             vc_output1 = gr.Textbox(
                 label=i18n("Output Information"),
                 info=i18n("The output information will be displayed here."),
             )
             vc_output2 = gr.Audio(label=i18n("Export Audio"))
-            
+
         with gr.Row():
             convert_button = gr.Button(i18n("Convert"))
 
     with gr.Tab(i18n("Download Music")):
         with gr.Row():
-            link = gr.Textbox(label=i18n("Music URL"), lines=1)     
-            output = gr.Textbox(label=i18n("Output Information"),info=i18n("The output information will be displayed here."))   
+            link = gr.Textbox(label=i18n("Music URL"), lines=1)
+            output = gr.Textbox(
+                label=i18n("Output Information"),
+                info=i18n("The output information will be displayed here."),
+            )
             download = gr.Button(i18n("Download"))
             download.click(
                 download_music,
