@@ -8,4 +8,4 @@
 - [Music Source Separation Universal Training Code](https://github.com/ZFTurbo/Music-Source-Separation-Training) by [ZFTurbo](https://github.com/ZFTurbo)
 - [AICoverGen](https://github.com/SociallyIneptWeeb/AICoverGen) by [SociallyIneptWeeb](https://github.com/SociallyIneptWeeb)
 - [FullmatheusBallZ](https://www.youtube.com/@FullmatheusBallZ) for helping me test the colabs
-- [Freepik](https://www.freepik.com) for the [image](https://www.freepik.com/free-psd/futuristic-cyber-monday-web-template_19966151.htm#fromView=search&page=1&position=3&uuid=d4a28e77-dc6f-4ec3-9c37-3525afc311e0)
+- [Shirou](https://github.com/ShiromiyaG)
