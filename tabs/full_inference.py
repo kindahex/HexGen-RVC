@@ -6,7 +6,7 @@ from assets.i18n.i18n import I18nAuto
 import torch
 import shutil
 import unicodedata
-
+from core import download_music
 i18n = I18nAuto()
 
 now_dir = os.getcwd()
@@ -243,7 +243,8 @@ def full_inference_tab():
                 inputs=[model_file],
                 outputs=[index_file],
             )
-    with gr.Tab(i18n("Single")):
+
+    with gr.Tab(i18n("Single Inference")):
         with gr.Column():
             upload_audio = gr.Audio(
                 label=i18n("Upload Audio"),
@@ -743,6 +744,23 @@ def full_inference_tab():
     with gr.Row():
         refresh_button = gr.Button(i18n("Refresh"))
         convert_button = gr.Button(i18n("Convert"))
+
+    with gr.Tab(i18n("Download Music")):
+        with gr.Row():
+            link = gr.Textbox(
+                label=i18n("Music URL"),
+                lines=1,
+            )
+             output = gr.Textbox(
+                 label=i18n("Output Information"),
+                 info=i18n("The output information will be displayed here."),
+             )
+             download = gr.Button(i18n("Download"))
+             download.click(
+                 download_music,
+                 inputs=[link],
+                 outputs=[output],
+             )
 
     def update_dropdown_visibility(checkbox):
         return gr.update(visible=checkbox)
