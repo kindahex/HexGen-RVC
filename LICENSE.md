@@ -1,9 +1,9 @@
 
 
-##  blane187gt'S Non-Commercial Use License (BNCU)
+##  KindaHex Non-Commercial Use License (HNCU)
 
-### License Overview:
-This repository is licensed under the **Blane187GT Non-Commercial Use License (BNCU)**. By using, modifying, or distributing any content from this repository, you agree to the terms outlined below.
+
+This repository is licensed under the **KindaHex Non-Commercial Use License (HNCU)**. By using, modifying, or distributing any content from this repository, you agree to the terms outlined below.
 
 ### Terms of Use:
 1. **Non-Commercial Use Only**: You are permitted to use, modify, and distribute the contents of this repository **only for non-commercial purposes**. Commercial use, including selling, licensing, or distributing for profit, is strictly prohibited.
