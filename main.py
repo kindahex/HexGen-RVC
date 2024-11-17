@@ -14,27 +14,21 @@ from assets.i18n.i18n import I18nAuto
 
 i18n = I18nAuto()
 
-import assets.themes.loadThemes as loadThemes
-
-rvc_theme = loadThemes.load_json() or "ParityError/Interstellar"
-
+\
 with gr.Blocks(
-    theme=rvc_theme, title="RVC AI Cover Maker", css="footer{display:none !important}"
-) as RVCAICoverMaker:
-    gr.Markdown("# RVC AI Cover Maker")
+    title="hexGen-RVC", css="footer{display:none !important}"
+) as app:
+    gr.Markdown("# hexGen RVC")
     with gr.Tab(i18n("Full Inference")):
         full_inference_tab()
     with gr.Tab(i18n("Download Music")):
         download_music_tab()
     with gr.Tab(i18n("Download Model")):
         download_model_tab()
-    with gr.Tab(i18n("Settings")):
-        select_themes_tab()
 
 
 def launch(port):
-    RVCAICoverMaker.launch(
-        favicon_path=os.path.join(now_dir, "assets", "logo.ico"),
+    app.launch(
         share="--share" in sys.argv,
         inbrowser="--open" in sys.argv,
         server_port=port,
