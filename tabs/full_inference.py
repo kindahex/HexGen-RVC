@@ -228,6 +228,7 @@ def full_inference_tab():
                 allow_custom_value=True,
             )
             with gr.Row():
+                refresh_button = gr.Button(i18n("Refresh"))
                 unload_button = gr.Button(i18n("Unload Voice"))
 
             unload_button.click(
@@ -483,7 +484,7 @@ def full_inference_tab():
                         "korean-hubert-base",
                     ],
                     value="contentvec",
-                    interactive=True,
+                    interactive=False,
                 )
                 autotune = gr.Checkbox(
                     label=i18n("Autotune"),
@@ -743,7 +744,6 @@ def full_inference_tab():
             vc_output2 = gr.Audio(label=i18n("Export Audio"))
             
         with gr.Row():
-            refresh_button = gr.Button(i18n("Refresh"))
             convert_button = gr.Button(i18n("Convert"))
 
     with gr.Tab(i18n("Download Music")):
