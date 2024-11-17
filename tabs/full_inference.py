@@ -336,7 +336,7 @@ def full_inference_tab():
                         label=i18n("Export Format"),
                         info=i18n("Select the format to export the audio."),
                         choices=["WAV", "MP3", "FLAC", "OGG", "M4A"],
-                        value="FLAC",
+                        value="WAV",
                         interactive=True,
                         visible=False,
                     )
@@ -352,7 +352,7 @@ def full_inference_tab():
                     pitch_extract_back = gr.Radio(
                         label=i18n("Pitch Extractor"),
                         info=i18n("Pitch extract Algorith."),
-                        choices=["rmvpe", "crepe", "crepe-tiny", "fcpe"],
+                        choices=["rmvpe", "crepe", "crepe-tiny", "fcpe", "hybrid[fcpe+rmvpe]"],
                         value="rmvpe",
                         interactive=True,
                     )
@@ -443,7 +443,7 @@ def full_inference_tab():
                     label=i18n("Export Format"),
                     info=i18n("Select the format to export the audio."),
                     choices=["WAV", "MP3", "FLAC", "OGG", "M4A"],
-                    value="FLAC",
+                    value="WAV",
                     interactive=True,
                     visible=False,
                 )
@@ -719,7 +719,7 @@ def full_inference_tab():
                     label=i18n("Export Format"),
                     info=i18n("Select the format to export the audio."),
                     choices=["WAV", "MP3", "FLAC", "OGG", "M4A"],
-                    value="FLAC",
+                    value="WAV",
                     interactive=True,
                 )
             with gr.Accordion(i18n("Device Settings"), open=False):
