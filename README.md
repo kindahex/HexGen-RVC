@@ -1,12 +1,4 @@
-<div align="center">
-  
-# <a href="https://github.com/ShiromiyaG/RVC-AI-Cover-Maker" target="_blank"><img src="https://github.com/ShiromiyaG/RVC-AI-Cover-Maker-WebUI/blob/main/assets/RVCCoverWebUI.png" alt="RVCAICoverMaker"></a>
-
-| **English** | **PT-BR** | **Kaggle** |
-|:---:|:---:|:---:|
-| <a target="_blank" href="https://colab.research.google.com/github/ShiromiyaG/RVC-AI-Cover-Maker-UI/blob/main/assets/RVCAICoverMakerUI.ipynb"> <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/> </a> | <a target="_blank" href="https://colab.research.google.com/github/ShiromiyaG/RVC-AI-Cover-Maker-UI/blob/main/assets/RVCAICoverMakerUI_PT_BR.ipynb"> <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/> </a> |  <a target="_blank" href="https://www.kaggle.com/code/shiromiya/rvc-ai-cover-maker-ui"> <img src="https://kaggle.com/static/images/open-in-kaggle.svg" alt="Open In Kaggle"/> </a> |
-
-</div>
+# HexGEN RVC
 
 ## Credits
 - [Audio Separator](https://github.com/karaokenerds/python-audio-separator) by [Andrew Beveridge](https://github.com/beveradb)
