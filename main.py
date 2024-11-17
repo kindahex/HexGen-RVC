@@ -3,7 +3,6 @@ import sys, os
 from tabs.full_inference import full_inference_tab
 from tabs.download_model import download_model_tab
 from tabs.download_music import download_music_tab
-from tabs.settings import select_themes_tab
 
 now_dir = os.getcwd()
 sys.path.append(now_dir)
