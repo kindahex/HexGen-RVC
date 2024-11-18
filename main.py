@@ -21,6 +21,7 @@ with gr.Blocks(title="hexGen-RVC", css="footer{display:none !important}") as app
         download_model_tab()
 
 
+print("launching app...")
 def launch(port):
     app.launch(
         share="--share" in sys.argv,
