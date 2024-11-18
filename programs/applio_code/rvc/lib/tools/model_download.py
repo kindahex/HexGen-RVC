@@ -72,7 +72,7 @@ def download_from_url(url):
                 try:
                     gdown.download(
                         f"https://drive.google.com/uc?id={file_id}",
-                        quiet=True,
+                        quiet=False,
                         fuzzy=True,
                     )
                 except Exception as error:
