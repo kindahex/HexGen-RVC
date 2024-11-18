@@ -1,7 +1,7 @@
 # HexGen RVC
 
 
-https://colab.research.google.com/drive/1dmGS0vEWuX55Z1w1tSRD6lJDV8s2deY0?usp=sharing
+[open in colab](https://colab.research.google.com/drive/1dmGS0vEWuX55Z1w1tSRD6lJDV8s2deY0?usp=sharing)
 
 HexGen RVC is a tool designed for generating high-quality AI vocal covers using advanced source separation, vocal modeling, and audio processing techniques. This project builds on several community-driven efforts, integrating the best tools and frameworks available for music and vocal manipulation.
 
