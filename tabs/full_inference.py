@@ -355,6 +355,9 @@ def full_inference_tab():
                         label=i18n("Pitch Extractor"),
                         info=i18n("Pitch extract Algorith."),
                         choices=[
+                            "pm",
+                            "harvest",
+                            "dio",
                             "rmvpe",
                             "crepe",
                             "crepe-tiny",
