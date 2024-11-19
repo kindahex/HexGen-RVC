@@ -12,9 +12,9 @@ import yaml
 
 now_dir = os.getcwd()
 sys.path.append(now_dir)
-from programs.applio_code.rvc.infer.infer import VoiceConverter
-from programs.applio_code.rvc.lib.tools.model_download import model_download_pipeline
-from programs.music_separation_code.inference import proc_file
+from programs.rvc.infer.infer import VoiceConverter
+from programs.rvc.lib.tools.model_download import model_download_pipeline
+from programs.separation.inference import proc_file
 
 models_vocals = [
     {
