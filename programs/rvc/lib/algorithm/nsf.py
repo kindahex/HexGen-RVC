@@ -4,8 +4,8 @@ from torch.nn.utils import remove_weight_norm
 from torch.nn.utils.parametrizations import weight_norm
 from typing import Optional
 
-from programs.applio_code.rvc.lib.algorithm.generators import SineGen
-from programs.applio_code.rvc.lib.algorithm.residuals import (
+from programs.rvc.lib.algorithm.generators import SineGen
+from programs.rvc.lib.algorithm.residuals import (
     LRELU_SLOPE,
     ResBlock1,
     ResBlock2,
