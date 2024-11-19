@@ -29,6 +29,7 @@ def printt(strr):
     f.write("%s\n" % strr)
     f.flush()
 
+
 class FeatureInput(object):
     def __init__(self, samplerate=16000, hop_size=160):
         self.fs = samplerate
@@ -41,28 +42,32 @@ class FeatureInput(object):
 
     def get_f0_rmvpe(self, x, f0_min=1, f0_max=40000, *args, **kwargs):
         if not hasattr(self, "model_rmvpe"):
-            self.model_rmvpe = RMVPE0Predictor(RMVPE_DIR, is_half=self.is_half, device=self.device)
-        f0 = self.model_rmvpe.infer_from_audio_with_pitch(x, thred=0.03, f0_min=f0_min, f0_max=f0_max)
+            self.model_rmvpe = RMVPE0Predictor(
+                RMVPE_DIR, is_half=self.is_half, device=self.device
+            )
+        f0 = self.model_rmvpe.infer_from_audio_with_pitch(
+            x, thred=0.03, f0_min=f0_min, f0_max=f0_max
+        )
         return f0
-    
+
     def compute_f0(self, path, f0_method):
         x = load_audio(path, self.fs)
         time_step = 160 / 16000 * 1000
         p_len = x.shape[0] // self.hop
         if f0_method == "rmvpe+":
             params = {
-                'x': x,
-                'p_len': p_len,
-                'f0_min': f0_min,
-                'f0_max': f0_max,
-                'time_step': time_step,
-                'hop_length': self.hop,
-                'model': "full"
+                "x": x,
+                "p_len": p_len,
+                "f0_min": f0_min,
+                "f0_max": f0_max,
+                "time_step": time_step,
+                "hop_length": self.hop,
+                "model": "full",
             }
             f0 = self.get_f0_rmvpe(**params)
         else:
             raise ValueError("Unsupported f0 method: {}".format(f0_method))
-        
+
         return f0
 
     def coarse_f0(self, f0):
@@ -89,10 +94,11 @@ class FeatureInput(object):
             for idx, (inp_path, opt_path1, opt_path2) in enumerate(paths):
                 try:
                     if idx % n == 0:
-                        printt("f0ing, now-%s, all-%s, -%s" % (idx, len(paths), inp_path))
-                    if (
-                        os.path.exists(opt_path1 + ".npy") 
-                        and os.path.exists(opt_path2 + ".npy")
+                        printt(
+                            "f0ing, now-%s, all-%s, -%s" % (idx, len(paths), inp_path)
+                        )
+                    if os.path.exists(opt_path1 + ".npy") and os.path.exists(
+                        opt_path2 + ".npy"
                     ):
                         continue
                     featur_pit = self.compute_f0(inp_path, f0_method)
@@ -101,6 +107,7 @@ class FeatureInput(object):
                     np.save(opt_path1, coarse_pit, allow_pickle=False)  # ori
                 except Exception as e:
                     printt("f0fail-%s-%s-%s" % (idx, inp_path, traceback.format_exc()))
+
 
 if __name__ == "__main__":
     printt(" ".join(sys.argv))
