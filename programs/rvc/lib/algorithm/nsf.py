@@ -10,7 +10,7 @@ from programs.rvc.lib.algorithm.residuals import (
     ResBlock1,
     ResBlock2,
 )
-from programs.applio_code.rvc.lib.algorithm.commons import init_weights
+from programs.rvc.lib.algorithm.commons import init_weights
 
 
 class SourceModuleHnNSF(torch.nn.Module):
