@@ -22,6 +22,8 @@ with gr.Blocks(title="hexGen-RVC", css="footer{display:none !important}") as app
 
 
 print("launching app...")
+
+
 def launch(port):
     app.launch(
         share="--share" in sys.argv,

@@ -84,6 +84,7 @@ class FeatureInput(object):
         elif f0_method == "rmvpe":
             if hasattr(self, "model_rmvpe") == False:
                 from infer.lib.rmvpe import RMVPE
+
                 print("Loading rmvpe model")
                 self.model_rmvpe = RMVPE(
                     "assets/rmvpe/rmvpe.pt", is_half=False, device="cpu"

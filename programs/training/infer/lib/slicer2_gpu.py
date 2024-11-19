@@ -18,7 +18,9 @@ def get_rms(
         pad_mode (str, optional): The padding mode used for the waveform. Defaults to "constant".
     """
     if isinstance(y, np.ndarray):
-        y = torch.tensor(y, device=torch.device('cuda' if torch.cuda.is_available() else 'cpu'))
+        y = torch.tensor(
+            y, device=torch.device("cuda" if torch.cuda.is_available() else "cpu")
+        )
     elif not isinstance(y, torch.Tensor):
         raise ValueError("Input must be a numpy array or torch tensor")
 

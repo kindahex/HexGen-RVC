@@ -36,6 +36,7 @@ if "privateuseone" not in device:
         device = "cpu"
 else:
     import torch_directml
+
     device = torch_directml.device(torch_directml.default_device())
 
     def forward_dml(ctx, x, scale):
@@ -47,10 +48,12 @@ else:
 
 f = open(f"{model_name}/extract_f0_feature.log".format(exp_dir), "a+")
 
+
 def printt(strr):
     print(strr)
     f.write("%s\n" % strr)
     f.flush()
+
 
 printt(" ".join(sys.argv))
 model_path = "assets/hubert/hubert_base.pt"
@@ -58,9 +61,12 @@ model_path = "assets/hubert/hubert_base.pt"
 printt("exp_dir: " + exp_dir)
 wavPath = f"{model_name}/1_16k_wavs".format(exp_dir)
 outPath = (
-    f"{model_name}/3_feature256".format(exp_dir) if version == "v1" else f"{model_name}/3_feature768".format(exp_dir)
+    f"{model_name}/3_feature256".format(exp_dir)
+    if version == "v1"
+    else f"{model_name}/3_feature768".format(exp_dir)
 )
 os.makedirs(outPath, exist_ok=True)
+
 
 # wave must be 16k, hop_size=320
 def readwave(wav_path, normalize=False):
@@ -75,6 +81,7 @@ def readwave(wav_path, normalize=False):
             feats = F.layer_norm(feats, feats.shape)
     feats = feats.view(1, -1)
     return feats
+
 
 # HuBERT model
 printt("load model(s) from {}".format(model_path))

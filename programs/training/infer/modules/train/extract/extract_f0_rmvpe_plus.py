@@ -29,6 +29,7 @@ def printt(strr):
     f.write("%s\n" % strr)
     f.flush()
 
+
 class FeatureInput(object):
     def __init__(self, samplerate=16000, hop_size=160):
         self.fs = samplerate
@@ -44,12 +45,17 @@ class FeatureInput(object):
         if f0_method == "rmvpe+":
             if not hasattr(self, "model_rmvpe"):
                 from infer.lib.rmvpe_plus import RMVPE_plus
+
                 print("Loading rmvpe+ model")
-                self.model_rmvpe = RMVPE_plus("assets/rmvpe/rmvpe.pt", is_half=is_half, device="cuda")
-            f0 = self.model_rmvpe.infer_from_audio_with_pitch(x, thred=0.03, f0_min=f0_min, f0_max=f0_max)
+                self.model_rmvpe = RMVPE_plus(
+                    "assets/rmvpe/rmvpe.pt", is_half=is_half, device="cuda"
+                )
+            f0 = self.model_rmvpe.infer_from_audio_with_pitch(
+                x, thred=0.03, f0_min=f0_min, f0_max=f0_max
+            )
         else:
             raise ValueError("Unsupported f0 method: {}".format(f0_method))
-        
+
         return f0
 
     def coarse_f0(self, f0):
@@ -76,10 +82,11 @@ class FeatureInput(object):
             for idx, (inp_path, opt_path1, opt_path2) in enumerate(paths):
                 try:
                     if idx % n == 0:
-                        printt("f0ing, now-%s, all-%s, -%s" % (idx, len(paths), inp_path))
-                    if (
-                        os.path.exists(opt_path1 + ".npy") 
-                        and os.path.exists(opt_path2 + ".npy")
+                        printt(
+                            "f0ing, now-%s, all-%s, -%s" % (idx, len(paths), inp_path)
+                        )
+                    if os.path.exists(opt_path1 + ".npy") and os.path.exists(
+                        opt_path2 + ".npy"
                     ):
                         continue
                     featur_pit = self.compute_f0(inp_path, f0_method)
@@ -88,6 +95,7 @@ class FeatureInput(object):
                     np.save(opt_path1, coarse_pit, allow_pickle=False)  # ori
                 except Exception as e:
                     printt("f0fail-%s-%s-%s" % (idx, inp_path, traceback.format_exc()))
+
 
 if __name__ == "__main__":
     printt(" ".join(sys.argv))

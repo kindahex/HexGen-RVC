@@ -78,6 +78,7 @@ from infer.lib.train.process_ckpt import savee
 
 global_step = 0
 
+
 class EpochRecorder:
     def __init__(self):
         self.last_time = ttime()
@@ -567,7 +568,11 @@ def train_and_evaluate(
             )
 
     if rank == 0:
-        logger.info("====> Эпоха: {}/{} | Шаг: {} | {}".format(epoch, hps.total_epoch, global_step, epoch_recorder.record()))
+        logger.info(
+            "====> Эпоха: {}/{} | Шаг: {} | {}".format(
+                epoch, hps.total_epoch, global_step, epoch_recorder.record()
+            )
+        )
     if epoch >= hps.total_epoch and rank == 0:
         logger.info("Тренировка успешно завершена. Завершение программы...")
 
