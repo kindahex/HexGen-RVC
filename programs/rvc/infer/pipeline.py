@@ -14,8 +14,8 @@ from torch import Tensor
 now_dir = os.getcwd()
 sys.path.append(now_dir)
 
-from programs.applio_code.rvc.lib.predictors.RMVPE import RMVPE0Predictor
-from programs.applio_code.rvc.lib.predictors.FCPE import FCPEF0Predictor
+from programs.rvc.lib.predictors.RMVPE import RMVPE0Predictor
+from programs.rvc.lib.predictors.FCPE import FCPEF0Predictor
 
 import logging
 
