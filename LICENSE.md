@@ -10,7 +10,7 @@ This repository is licensed under the **KindaHex Non-Commercial Use License (HNC
    
 2. **Modification and Derivative Works**: You may modify the contents of this repository and create derivative works. However, any modification or derivative work must also adhere to the non-commercial restriction and be subject to the terms of this license.
 
-3. **Attribution**: When using or distributing the content (either as-is or modified), you must provide proper attribution to the original creator (blane187gt) in a manner that is reasonable and customary for the medium.
+3. **Attribution**: When using or distributing the content (either as-is or modified), you must provide proper attribution to the original creator (KindaHex) in a manner that is reasonable and customary for the medium.
 
 4. **No Warranty**: The content in this repository is provided "as-is," without any warranty, express or implied, including but not limited to warranties of merchantability or fitness for a particular purpose.
 
