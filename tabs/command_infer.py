@@ -1,3 +1,15 @@
+from core import full_inference_program
+import sys, os
+import gradio as gr
+import regex as re
+from assets.i18n.i18n import I18nAuto
+import torch
+import shutil
+import unicodedata
+from core import download_music
+
+i18n = I18nAuto()
+
 model_root = os.path.join(now_dir, "logs")
 audio_root = os.path.join(now_dir, "audio_files", "original_files")
 
