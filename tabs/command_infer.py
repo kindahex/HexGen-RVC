@@ -8,6 +8,8 @@ import shutil
 import unicodedata
 from core import download_music
 
+now_dir = os.getcwd()
+sys.path.append(now_dir)
 i18n = I18nAuto()
 
 model_root = os.path.join(now_dir, "logs")
