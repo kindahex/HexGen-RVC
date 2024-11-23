@@ -1,6 +1,17 @@
 import argparse
 import os
+import re
+import six
 import sys
+import wget
+import shutil
+import zipfile
+import requests
+from bs4 import BeautifulSoup
+from urllib.parse import unquote, urlencode, parse_qs, urlparse
+
+now_dir = os.getcwd()
+sys.path.append(now_dir)
 
 # Import your existing methods and dependencies
 from programs.rvc.lib.utils import format_title
