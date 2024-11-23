@@ -16,8 +16,10 @@ sys.path.append(now_dir)
 # Import your existing methods and dependencies
 from programs.rvc.lib.utils import format_title
 from programs.rvc.lib.tools import gdown
-from  programs.rvc.lib.tools.model_download import model_download_pipeline
+from programs.rvc.lib.tools.model_download import model_download_pipeline
+
 # Define your functions here (copy all your existing functions like find_folder_parent, download_from_url, etc.)
+
 
 def cli():
     parser = argparse.ArgumentParser(description="Model Download Pipeline CLI")
@@ -48,6 +50,7 @@ def cli():
         print("An error occurred during the process.")
     else:
         print("Process completed successfully.")
+
 
 if __name__ == "__main__":
     cli()
