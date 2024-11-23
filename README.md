@@ -13,7 +13,7 @@ HexGen RVC is a tool designed for generating high-quality AI vocal covers using 
 ## Installation
 1. Clone the repository:
    ```bash
-   git clone https://github.com/blane187gt/hexGen-RVC.git
+   git clone https://github.com/kindahex/HexGen-RVC.git
    cd hexGen-RVC
    ```
 2. Follow specific setup instructions provided in the [documentation](https://github.com/blane187gt/hexGen-RVC/wiki) (if available) or in the code comments.
