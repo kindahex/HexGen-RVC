@@ -17,9 +17,21 @@ model_root_relative = os.path.relpath(model_root, now_dir)
 audio_root_relative = os.path.relpath(audio_root, now_dir)
 
 sup_audioext = {
-    "wav", "mp3", "flac", "ogg", "opus", "m4a", "mp4", "aac",
-    "alac", "wma", "aiff", "webm", "ac3"
+    "wav",
+    "mp3",
+    "flac",
+    "ogg",
+    "opus",
+    "m4a",
+    "mp4",
+    "aac",
+    "alac",
+    "wma",
+    "aiff",
+    "webm",
+    "ac3",
 }
+
 
 def get_indexes():
     indexes_list = [
@@ -29,6 +41,7 @@ def get_indexes():
         if filename.endswith(".index") and "trained" not in filename
     ]
     return indexes_list if indexes_list else ""
+
 
 def match_index(model_file_value):
     if model_file_value:
@@ -46,6 +59,7 @@ def match_index(model_file_value):
                 return index_file
     return ""
 
+
 def get_number_of_gpus():
     if torch.cuda.is_available():
         num_gpus = torch.cuda.device_count()
@@ -53,32 +67,64 @@ def get_number_of_gpus():
     else:
         return "-"
 
+
 def format_title(title):
-    formatted_title = unicodedata.normalize("NFKD", title).encode("ascii", "ignore").decode("utf-8")
+    formatted_title = (
+        unicodedata.normalize("NFKD", title).encode("ascii", "ignore").decode("utf-8")
+    )
     formatted_title = re.sub(r"[\u2500-\u257F]+", "", formatted_title)
     formatted_title = re.sub(r"[^\w\s.-]", "", formatted_title)
     formatted_title = re.sub(r"\s+", "_", formatted_title)
     return formatted_title
 
+
 def main():
     parser = argparse.ArgumentParser(description="RVC Voice Conversion CLI")
-    
+
     # Required arguments
     parser.add_argument("--model", required=True, help="Path to voice model file")
     parser.add_argument("--index", help="Path to index file")
     parser.add_argument("--input", required=True, help="Input audio file path")
-    
+
     # Optional arguments with defaults
-    parser.add_argument("--pitch", type=int, default=0, help="Pitch adjustment (-12 to 12)")
-    parser.add_argument("--filter-radius", type=int, default=3, help="Filter radius (0-7)")
-    parser.add_argument("--index-rate", type=float, default=0.75, help="Search feature ratio (0-1)")
-    parser.add_argument("--rms-mix-rate", type=float, default=0.25, help="Volume envelope mix rate (0-1)")
-    parser.add_argument("--protect", type=float, default=0.33, help="Protect voiceless consonants (0-0.5)")
-    parser.add_argument("--pitch-extract", choices=["rmvpe", "crepe", "crepe-tiny", "fcp"], default="rmvpe")
-    parser.add_argument("--device", default=get_number_of_gpus(), help="Device to use (e.g. '0' for GPU 0, '-' for CPU)")
-    parser.add_argument("--output-format", choices=["WAV", "MP3", "FLAC", "OGG", "M4A"], default="WAV")
+    parser.add_argument(
+        "--pitch", type=int, default=0, help="Pitch adjustment (-12 to 12)"
+    )
+    parser.add_argument(
+        "--filter-radius", type=int, default=3, help="Filter radius (0-7)"
+    )
+    parser.add_argument(
+        "--index-rate", type=float, default=0.75, help="Search feature ratio (0-1)"
+    )
+    parser.add_argument(
+        "--rms-mix-rate",
+        type=float,
+        default=0.25,
+        help="Volume envelope mix rate (0-1)",
+    )
+    parser.add_argument(
+        "--protect",
+        type=float,
+        default=0.33,
+        help="Protect voiceless consonants (0-0.5)",
+    )
+    parser.add_argument(
+        "--pitch-extract",
+        choices=["rmvpe", "crepe", "crepe-tiny", "fcp"],
+        default="rmvpe",
+    )
+    parser.add_argument(
+        "--device",
+        default=get_number_of_gpus(),
+        help="Device to use (e.g. '0' for GPU 0, '-' for CPU)",
+    )
+    parser.add_argument(
+        "--output-format", choices=["WAV", "MP3", "FLAC", "OGG", "M4A"], default="WAV"
+    )
     parser.add_argument("--autotune", action="store_true", help="Enable autotune")
-    parser.add_argument("--split-audio", action="store_true", help="Enable audio splitting")
+    parser.add_argument(
+        "--split-audio", action="store_true", help="Enable audio splitting"
+    )
 
     args = parser.parse_args()
 
@@ -101,10 +147,11 @@ def main():
         rms_mix_rate=args.rms_mix_rate,
         protect=args.protect,
         pitch_extract=args.pitch_extract,
-        devices=args.device
+        devices=args.device,
     )
 
     print(result)
+
 
 if __name__ == "__main__":
     main()
