@@ -16,6 +16,7 @@ from programs.rvc.infer.infer import VoiceConverter
 from programs.rvc.lib.tools.model_download import model_download_pipeline
 from programs.separation.inference import proc_file
 
+
 models_vocals = [
     {
         "name": "Mel-Roformer by KimberleyJSN",
@@ -340,7 +341,7 @@ def full_inference_program(
     if torch.cuda.is_available():
         n_gpu = torch.cuda.device_count()
         devices = devices.replace("-", " ")
-        print(f"Number of GPUs available | {n_gpu}")
+        print(f"Number of GPUs available: {n_gpu}")
         first_device = devices.split()[0]
         fp16 = check_fp16_support(first_device)
     else:
@@ -381,9 +382,9 @@ def full_inference_program(
     input_audio_basename = os.path.splitext(os.path.basename(input_audio_path))[0]
     search_result = search_with_word(store_dir, "vocals")
     if search_result:
-        print("Vocals already separated..."),
+        print("Vocals already separated"),
     else:
-        print("Separating vocals...")
+        print("Separating vocals")
         command = [
             "python",
             os.path.join(now_dir, "programs", "music_separation_code", "inference.py"),
@@ -547,11 +548,11 @@ def full_inference_program(
     input_file = search_with_word(karaoke_path, "karaoke")
     noreverb_exists = search_with_word(store_dir, "noreverb") is not None
     if noreverb_exists:
-        print("Reverb already removed...")
+        print("Reverb already removed")
     else:
         if input_file:
             input_file = os.path.join(karaoke_path, input_file)
-        print("Removing reverb...")
+        print("Removing reverb")
         if (
             model_info["name"] == "BS-Roformer Dereverb by anvuew"
             or model_info["name"] == "MDX23C DeReverb by aufr33 and jarredou"
@@ -704,10 +705,10 @@ def full_inference_program(
     if denoise:
         no_noise_exists = search_with_word(store_dir, "dry") is not None
         if no_noise_exists:
-            print("Noise already removed...")
+            print("Noise already removed")
         else:
             model_info = get_model_info_by_name(denoise_model)
-            print("Removing noise...")
+            print("Removing noise")
             input_file = (
                 os.path.join(
                     now_dir,
@@ -980,7 +981,7 @@ def full_inference_program(
         "final",
         f"{os.path.basename(input_audio_path).split('.')[0]}_final.{export_format_final.lower()}",
     )
-    print("Merging audios...")
+    print("Merging audios")
     result = merge_audios(
         vocals_file,
         inst_file,
@@ -1007,7 +1008,7 @@ def full_inference_program(
 
 def download_model(link):
     model_download_pipeline(link)
-    return "Model downloaded with success..."
+    return "Model downloaded with success"
 
 
 def download_music(link):
@@ -1015,11 +1016,9 @@ def download_music(link):
     command = [
         "yt-dlp",
         "-x",
-        "--audio-format",
-        "wav",
         "--output",
         os.path.join(now_dir, "audio_files", "original_files", "%(title)s.%(ext)s"),
         link,
     ]
     subprocess.run(command)
-    return "Music downloaded with success..."
+    return "Music downloaded with success"
